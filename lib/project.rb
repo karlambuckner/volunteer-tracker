@@ -1,16 +1,16 @@
 class Project
-  attr_reader :title, :id
+  attr_reader(:title, :id)
 
-  def initialize(project)
-    @title = project[:title]
-    @id = project[:id]
+  def initialize(project_attr)
+    @title = project_attr[:title]
+    @id = project_attr[:id]
   end
 
   def self.all
     returned_projects = DB.exec("SELECT * FROM projects;")
     projects = []
     returned_projects.each() do |project|
-      projects.push(Project.new({:title => title, :id => id.to_i}))
+      projects.push(Project.new({title: project['title'], id: project['id'].to_i}))
     end
     projects
   end
@@ -25,7 +25,7 @@ class Project
 
   def self.find(id)
     found_project = DB.exec("SELECT * FROM projects WHERE id = #{id}").first
-    Project.new({:title => 'title', :id => 'id'.to_i})
+    Project.new({title: found_project['title'], id: found_project['id'].to_i})
   end
 
 
