@@ -28,6 +28,14 @@ class Project
     Project.new({title: found_project['title'], id: found_project['id'].to_i})
   end
 
+  def update(update_project)
+    @title = update_project[:title]
+  end
+
+  def delete
+   DB.exec("DELETE FROM projects WHERE id = #{@id}")
+ end
+
 
 
 end
