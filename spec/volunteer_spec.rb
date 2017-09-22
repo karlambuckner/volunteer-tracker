@@ -1,15 +1,4 @@
-# require "spec_helper"
-require ("volunteer")
-require ("pg")
-require ("rspec")
-
-DB = PG.connect({:dbname => 'volunteer_tracker_test'})
-
-RSpec.configure do |config|
-  config.after(:each) do
-    DB.exec("DELETE FROM volunteers *;")
-  end
-end
+require "spec_helper"
 
 describe Volunteer do
   describe '#name' do
