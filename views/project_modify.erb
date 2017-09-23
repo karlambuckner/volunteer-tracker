@@ -1,0 +1,23 @@
+<h1>Volunteer Tracker</h1><br>
+
+<h2>Current Project:</h2>
+<h3><a href="/projects/<%= @project.id %>/edit"><%= @project.title %></a></h3>
+
+<form action="/projects/<%= @project.id %>/edit" method="post">
+  <input name="delete" type="hidden" value="delete">
+  <button type="submit" class="btn">Delete this project</button>
+</form>
+
+<br>
+<h2>Edit Your Project</h2>
+
+<form action="/projects/<%= @project.id %>/edit" method="post">
+  <label for="title">New name of project:</label>
+  <input name="title" type="text">
+  <button type="submit" class="btn">Update your Project</button>
+</form>
+
+<br>
+<div class="container">
+  <a href="/"><button class="btn">Return Home</a>
+</div>

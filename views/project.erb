@@ -1,1 +1,21 @@
-<h1><%= @project.title %></h1>
+<h1>Volunteer Tracker</h1><br>
+
+<h2>Current Project:</h2>
+<h3><a href="/projects/<%= @project.id %>"><%= @project.title %></a><a class="btn" href="/projects/<%= @project.id %>/edit">Edit Project</a></h3>
+
+<br>
+
+<h2>Current Volunteers:</h2>
+<% if @volunteers.any? %>
+  <% @volunteers.each do |volunteer| %>
+    <h3><a href="/volunteer/<%= volunteer.id %>"><%= volunteer.name %></a></h3>
+  <% end %>
+
+  <% else %>
+    <h2>There are no assigned volunteers yet</h2>
+  <% end %>
+
+<br>
+<div class="container">
+  <a href="/"><button class="btn">Return Home</a>
+</div>
