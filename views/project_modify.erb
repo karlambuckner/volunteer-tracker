@@ -4,8 +4,8 @@
 <h3><a href="/projects/<%= @project.id %>/edit"><%= @project.title %></a></h3>
 
 <form action="/projects/<%= @project.id %>/edit" method="post">
-  <input name="delete" type="hidden" value="delete">
-  <button type="submit" class="btn">Delete this project</button>
+  <input name="_method" type="hidden" value="delete">
+  <button type="submit" class="btn">Delete this Project</button>
 </form>
 
 <br>

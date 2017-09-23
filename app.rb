@@ -25,13 +25,13 @@ get("/projects/:id") do
   @project_id = params[:id]
   @project = Project.find(params["id"].to_i)
   @volunteers = Volunteer.all
-  erb(:project_modify)
+  erb(:project)
 end
 
 get("/projects/:id/edit") do
   @project_id = params[:id]
   @project = Project.find(params["id"].to_i)
-  erb(:project)
+  erb(:project_modify)
 end
 
 post("/projects/:id/edit") do
@@ -40,4 +40,12 @@ post("/projects/:id/edit") do
   @project = Project.find(params["id"].to_i)
   @project.update({:title => title})
   erb(:project_modify)
+end
+
+delete("/projects/:id/edit") do
+  @project_id = params[:id]
+  @project = Project.find(params["id"].to_i)
+  @project.delete
+  @projects = Project.all
+  erb(:index)
 end
