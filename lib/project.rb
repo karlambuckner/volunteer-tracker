@@ -24,8 +24,13 @@ class Project
   end
 
   def self.find(id)
-    found_project = DB.exec("SELECT * FROM projects WHERE id = #{id}").first
-    Project.new({title: found_project['title'], id: found_project['id'].to_i})
+    found_project = nil
+    Project.all().each() do |project|
+      if project.id()==(id)
+        found_project = project
+      end
+    end
+    found_project
   end
 
   def update(update_project)
@@ -44,5 +49,4 @@ class Project
     end
     volunteers
   end
-
 end
