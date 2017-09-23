@@ -15,6 +15,12 @@
     <h2>There are no assigned volunteers yet</h2>
   <% end %>
 
+  <form action="/projects" method="post">
+    <label for="name">Add a Volunteer:</label>
+    <input name="name" type="text">
+    <button type="submit" class="btn">Add Volunteer</button>
+  </form>
+
 <br>
 <div class="container">
   <a href="/"><button class="btn">Return Home</a>

@@ -18,6 +18,7 @@ post("/projects") do
   @project = Project.new({:id => nil, :title => title})
   @project.save
   @projects = Project.all
+  name = params['name']
   erb(:index)
 end
 
@@ -48,4 +49,17 @@ delete("/projects/:id/edit") do
   @project.delete
   @projects = Project.all
   erb(:index)
+end
+
+get("/volunteer/:id") do
+  @volunteer = Volunteer.find(params["id"].to_i)
+  erb(:volunteer)
+end
+
+post("/volunteer/:id") do
+  name = params['name']
+  @volunteer_id = params[:id]
+  @volunteer = Volunteer.find(params["id"].to_i)
+  @volunteer.update({:name => name})
+  erb(:volunteer)
 end

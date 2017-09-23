@@ -1,0 +1,15 @@
+<h1>Volunteer Tracker</h1><br>
+
+<h2>Current Volunteer:</h2>
+<h3><a href="/volunteer/<%= @volunteer.id %>"><%= @volunteer.name %></a></h3>
+
+<form action="/volunteer/<%= @volunteer.id %>" method="post">
+  <label for="name">Enter new name:</label>
+  <input name="name" type="text">
+  <button type="submit" class="btn">Update Volunteer</button>
+</form>
+
+<br>
+<div class="container">
+  <a href="/"><button class="btn">Return Home</a>
+</div>
