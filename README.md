@@ -14,7 +14,7 @@ _In this web application, the user can add projects and add volunteers, then ass
 Input: Feed Homeless Output: Project - Feed Homeless
 
 # _Add a volunteer_
-Input: Joe Shmo Output: Volnteer - Joe Shmo
+Input: Joe Shmo Output: Volunteer - Joe Shmo
 
 # _Assign volunteer to a project_
 Input: Joe Shmo Output : Project - Feed Homeless Volunteer - Joe Shmo
