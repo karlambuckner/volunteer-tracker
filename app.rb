@@ -65,9 +65,9 @@ post("/projects/:project_id/volunteers") do
   redirect("/projects/#{project_id}")
 end
 
-post("/volunteer/:id") do
+patch("/volunteer/:id") do
   name = params['name']
-  volunteer_id = params[:project_id]
+  # volunteer_id = params[:project_id]
   @volunteer = Volunteer.find(params["id"].to_i)
   @volunteer.update({:name => name})
   erb(:volunteer)

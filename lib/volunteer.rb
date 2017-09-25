@@ -29,9 +29,10 @@ class Volunteer
     Volunteer.new({name: found_volunteer['name'], id: found_volunteer['id'].to_i, project_id: found_volunteer['project_id'].to_i})
   end
 
-  def update(update_volunteer)
-    @name = update_volunteer[:name]
-    @project_id = update_volunteer[:project_id]
+  def update(attributes)
+    @name = attributes.fetch(:name)
+    @id= self.id()
+    DB.exec("UPDATE volunteers SET (name) = ('#{@name}') WHERE id = #{@id};")
   end
 
   def delete
